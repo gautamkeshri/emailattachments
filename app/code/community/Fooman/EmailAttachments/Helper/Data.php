@@ -214,23 +214,23 @@ class Fooman_EmailAttachments_Helper_Data extends Mage_Core_Helper_Abstract
         return sprintf('=?utf-8?B?%s?=', base64_encode($subject));
     }
 
-    public function getOrderAttachmentName($order)
+   public function getOrderAttachmentName($order)
     {
-        return Mage::helper('sales')->__('Order') . "_" . $order->getIncrementId();
+        return Mage::app()->getStore()->getFrontendName() . "_" . Mage::helper('sales')->__('Order') . "_" . $order->getIncrementId();
     }
 
     public function getInvoiceAttachmentName($invoice)
     {
-        return Mage::helper('sales')->__('Invoice') . "_" . $invoice->getIncrementId();
+        return Mage::app()->getStore()->getFrontendName() . "_" .  Mage::helper('sales')->__('Invoice') . "_" . $invoice->getIncrementId();
     }
 
     public function getShipmentAttachmentName($shipment)
     {
-        return Mage::helper('sales')->__('Shipment') . "_" . $shipment->getIncrementId();
+        return Mage::app()->getStore()->getFrontendName() . "_" .  Mage::helper('sales')->__('Shipment') . "_" . $shipment->getIncrementId();
     }
 
     public function getCreditmemoAttachmentName($creditmemo)
     {
-        return Mage::helper('sales')->__('Credit Memo') . "_" . $creditmemo->getIncrementId();
+        return Mage::app()->getStore()->getFrontendName() . "_" .  Mage::helper('sales')->__('Credit Memo') . "_" . $creditmemo->getIncrementId();
     }
 }
